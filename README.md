@@ -4,9 +4,11 @@ Google Finance Ruby Client
 [![Gem Version](https://badge.fury.io/rb/google-finance-ruby-client.svg)](http://badge.fury.io/rb/google-finance-ruby-client)
 [![Build Status](https://travis-ci.org/dblock/google-finance-ruby-client.svg?branch=master)](https://travis-ci.org/dblock/google-finance-ruby-client)
 
-A Ruby client for the Google Finance web API.
+A Ruby client for the undocumented Google Finance web API that attempts to make sense of the data and restores developer sanity.
 
-![](google-finance.png)
+<a href='http://finance.google.com/finance'>![](google-finance.png)</a>
+
+_IANAL, but do note that if your application is for public consumption, using the Google Finance API [seems to be against Google's terms of service](https://groups.google.com/forum/#!msg/google-finance-apis/O8fjsgnamHE/-ZKSjif4yDIJ)._
 
 ## Installation
 
@@ -20,7 +22,15 @@ Run `bundle install`.
 
 ## Usage
 
-TODO
+```ruby
+quote = GoogleFinance::Quote.get('MSFT')
+
+quote.last # last price
+quote.change # change in price
+quote.change_in_percent # change in %
+```
+
+See [quote.rb](lib/google_finance/quote.rb) for more fields.
 
 ## Contributing
 
