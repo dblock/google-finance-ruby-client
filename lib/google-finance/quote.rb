@@ -16,7 +16,7 @@ module GoogleFinance
     property 'kr_ttm_date'
     property 'keyratios'
     property 'change', from: 'c', with: ->(v) { v.to_f } # change today
-    property 'last', from: 'l', with: ->(v) { v.to_f } # last price
+    property 'last_trade_price', from: 'l', with: ->(v) { v.to_f } # last trade price
     property 'change_in_percent', from: 'cp', with: ->(v) { v.to_f } # change in percent
     property 'ccol'
     property 'op'

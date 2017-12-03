@@ -27,7 +27,7 @@ Run `bundle install`.
 ```ruby
 quote = GoogleFinance::Quote.get('MSFT')
 
-quote.last # last price
+quote.last_trade_price # last trade price
 quote.change # change in price
 quote.change_in_percent # change in %
 ```

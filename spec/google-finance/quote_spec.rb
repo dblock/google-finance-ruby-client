@@ -15,7 +15,7 @@ describe GoogleFinance::Quote do
       expect(subject.reuters_url).to eq URI('http://stocks.us.reuters.com/stocks/ratios.asp?rpc=66&symbol=MSFT.O')
     end
     it 'coerces numbers' do
-      expect(subject.last).to eq 84.26
+      expect(subject.last_trade_price).to eq 84.26
       expect(subject.change).to eq 0.09
       expect(subject.change_in_percent).to eq 0.11
     end
