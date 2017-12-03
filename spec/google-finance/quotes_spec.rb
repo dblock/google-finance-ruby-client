@@ -11,4 +11,12 @@ describe GoogleFinance::Quotes do
       expect(subject[1].symbol).to eq 'AB'
     end
   end
+  context 'with an invalid symbol', vcr: { cassette_name: 'msft_ab_invalid' } do
+    subject do
+      GoogleFinance::Quotes.get('MSFT', 'AB', 'INVALID')
+    end
+    it 'retrieves multiple quotes' do
+      expect { subject }.to raise_error GoogleFinance::Errors::SymbolsNotFoundError, 'One or More Symbols MSFT AB INVALID Not Found'
+    end
+  end
 end

@@ -34,6 +34,8 @@ quote.change_in_percent # change in %
 
 See [quote.rb](lib/google_finance/quote.rb) for more fields.
 
+If a symbol cannot be found a [GoogleFinance::Errors::SymbolNotFound](lib/google-finance/errors/symbol_not_found_error.rb) is raised.
+
 ### Get Multiple Quotes
 
 Performs a search for a ticker, then fetches the result.
@@ -46,6 +48,8 @@ quotes.size # 2
 quotes[0] # GoogleFinance::Quote.get('MSFT')
 quotes[1] # GoogleFinance::Quote.get('AB')
 ```
+
+If one of the symbols cannot be found a [GoogleFinance::Errors::SymbolsNotFound](lib/google-finance/errors/symbols_not_found_error.rb) is raised.
 
 ## Contributing
 

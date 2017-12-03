@@ -47,7 +47,16 @@ module GoogleFinance
     property 'events'
 
     def self.get(symbol)
-      new Resources.fetch(q: symbol).first
+      data = Resources.fetch(q: symbol)
+      if data.is_a?(Hash) && data.key?('searchresults')
+        if data['searchresults'].size >= 1
+          get(data['searchresults'].first['symbol'])
+        else
+          raise GoogleFinance::Errors::SymbolNotFoundError.new(symbol, data)
+        end
+      elsif data.is_a?(Array) && data.size == 1
+        new data.first
+      end
     end
   end
 end

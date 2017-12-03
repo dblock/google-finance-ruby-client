@@ -20,4 +20,12 @@ describe GoogleFinance::Quote do
       expect(subject.change_in_percent).to eq 0.11
     end
   end
+  context 'invalid symbol', vcr: { cassette_name: 'invalid' } do
+    subject do
+      GoogleFinance::Quote.get('INVALID')
+    end
+    it 'fails with SymbolNotFoundError' do
+      expect { subject }.to raise_error GoogleFinance::Errors::SymbolNotFoundError, 'Symbol INVALID Not Found'
+    end
+  end
 end
