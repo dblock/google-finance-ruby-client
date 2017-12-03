@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GoogleFinance::Quotes do
   context 'known symbols', vcr: { cassette_name: 'msft_ab' } do
     subject do
-      GoogleFinance::Quotes.get('MSFT', 'AB')
+      GoogleFinance::Quotes.search('MSFT', 'AB')
     end
     it 'retrieves multiple quotes' do
       expect(subject.size).to eq 2
@@ -13,7 +13,7 @@ describe GoogleFinance::Quotes do
   end
   context 'with an invalid symbol', vcr: { cassette_name: 'msft_ab_invalid' } do
     subject do
-      GoogleFinance::Quotes.get('MSFT', 'AB', 'INVALID')
+      GoogleFinance::Quotes.search('MSFT', 'AB', 'INVALID')
     end
     it 'retrieves multiple quotes' do
       expect { subject }.to raise_error GoogleFinance::Errors::SymbolsNotFoundError, 'One or More Symbols MSFT AB INVALID Not Found'
