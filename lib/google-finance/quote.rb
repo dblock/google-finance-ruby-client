@@ -64,6 +64,8 @@ module GoogleFinance
         end
       elsif data.is_a?(Array) && data.size == 1
         new data.first
+      else
+        raise GoogleFinance::Errors::SymbolNotFoundError.new(symbol, data)
       end
     end
   end
