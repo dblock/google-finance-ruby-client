@@ -22,6 +22,8 @@ Run `bundle install`.
 
 ## Usage
 
+### Get a Quote
+
 ```ruby
 quote = GoogleFinance::Quote.get('MSFT')
 
@@ -31,6 +33,19 @@ quote.change_in_percent # change in %
 ```
 
 See [quote.rb](lib/google_finance/quote.rb) for more fields.
+
+### Get Multiple Quotes
+
+Performs a search for a ticker, then fetches the result.
+
+```ruby
+quotes = GoogleFinance::Quote.get('MSFT', 'AB')
+
+quotes.size # 2
+
+quotes[0] # GoogleFinance::Quote.get('MSFT')
+quotes[1] # GoogleFinance::Quote.get('AB')
+```
 
 ## Contributing
 
