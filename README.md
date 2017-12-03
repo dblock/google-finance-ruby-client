@@ -4,7 +4,7 @@ Google Finance Ruby Client
 [![Gem Version](https://badge.fury.io/rb/google-finance-ruby-client.svg)](http://badge.fury.io/rb/google-finance-ruby-client)
 [![Build Status](https://travis-ci.org/dblock/google-finance-ruby-client.svg?branch=master)](https://travis-ci.org/dblock/google-finance-ruby-client)
 
-A Ruby client for the undocumented Google Finance web API that attempts to make sense of the data and restores developer sanity.
+A Ruby client for the undocumented Google Finance web API that attempts to make sense of the data.
 
 <a href='http://finance.google.com/finance'>![](google-finance.png)</a>
 
@@ -27,10 +27,10 @@ Run `bundle install`.
 ```ruby
 quote = GoogleFinance::Quote.get('MSFT')
 
-quote.last_trade_price # last trade price
-quote.change # change in price
-quote.change_in_percent # change in %
-quote.change_in_percent_s # change in % as a string with + or -
+quote.last_trade_price # 84.26
+quote.change # 0.09
+quote.change_in_percent # 0.11
+quote.change_in_percent_s # "+0.11%"
 ```
 
 See [quote.rb](lib/google_finance/quote.rb) for more fields.
@@ -39,10 +39,10 @@ If a symbol cannot be found a [GoogleFinance::Errors::SymbolNotFound](lib/google
 
 ### Get Multiple Quotes
 
-Performs a search for a ticker, then fetches the result.
+Searches for a ticker or tickers, then fetches each quote.
 
 ```ruby
-quotes = GoogleFinance::Quote.get('MSFT', 'AB')
+quotes = GoogleFinance::Quotes.search('MSFT', 'AB')
 
 quotes.size # 2
 
