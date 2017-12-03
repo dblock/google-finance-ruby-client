@@ -30,6 +30,7 @@ quote = GoogleFinance::Quote.get('MSFT')
 quote.last_trade_price # last trade price
 quote.change # change in price
 quote.change_in_percent # change in %
+quote.change_in_percent_s # change in % as a string with + or -
 ```
 
 See [quote.rb](lib/google_finance/quote.rb) for more fields.

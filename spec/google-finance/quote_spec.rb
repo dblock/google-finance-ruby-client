@@ -18,6 +18,7 @@ describe GoogleFinance::Quote do
       expect(subject.last_trade_price).to eq 84.26
       expect(subject.change).to eq 0.09
       expect(subject.change_in_percent).to eq 0.11
+      expect(subject.change_in_percent_s).to eq '+0.11%'
     end
   end
   context 'invalid symbol', vcr: { cassette_name: 'invalid' } do

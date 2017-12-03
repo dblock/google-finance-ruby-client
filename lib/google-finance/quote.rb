@@ -46,6 +46,14 @@ module GoogleFinance
     property 'moreresources'
     property 'events'
 
+    def change_in_percent_s
+      [
+        change_in_percent > 0 ? '+' : '',
+        format('%.2f', change_in_percent),
+        '%'
+      ].join
+    end
+
     def self.get(symbol)
       data = Resources.fetch(q: symbol)
       if data.is_a?(Hash) && data.key?('searchresults')
