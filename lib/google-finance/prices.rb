@@ -54,6 +54,7 @@ module GoogleFinance
           rows << GoogleFinance::Price.new(row)
         end
       end
+      raise GoogleFinance::Errors::SymbolNotFoundError.new(symbol, data) if rows.count == 0 && headers[:exchange] == 'UNKNOWN EXCHANGE'
       new headers, rows
     end
   end

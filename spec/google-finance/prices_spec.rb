@@ -27,4 +27,12 @@ describe GoogleFinance::Prices do
       end
     end
   end
+  context 'unknown symbol', vcr: { cassette_name: 'get_prices_invalid' } do
+    subject do
+      GoogleFinance::Prices.get('INVALID')
+    end
+    it 'fails with SymbolNotFoundError' do
+      expect { subject }.to raise_error GoogleFinance::Errors::SymbolNotFoundError, 'Symbol INVALID Not Found'
+    end
+  end
 end
