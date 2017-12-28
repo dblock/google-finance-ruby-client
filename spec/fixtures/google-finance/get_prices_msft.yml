@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://finance.google.com/finance/getprices?q=MSFT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=ISO-8859-1
+      Cache-Control:
+      - private,max-age=60
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      P3p:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      Date:
+      - Thu, 28 Dec 2017 17:36:02 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Set-Cookie:
+      - NID=120=rQwDiRAJ6enXL1rj3-FNIB1RCMkB-Ed3cKNKyBqoscW2M_0MfHmwtDaiOjCj3Rn8Fj0-V6uzybRtIA8XkUCgM0RWGi2x1jetNMWvw4xopJaGjvoKs1ZI6V1ZwLM-DAGv;Domain=.google.com;Path=/;Expires=Fri,
+        29-Jun-2018 17:36:02 GMT;HttpOnly
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+      Expires:
+      - Thu, 28 Dec 2017 17:36:02 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        EXCHANGE%3DNASDAQ
+        MARKET_OPEN_MINUTE=570
+        MARKET_CLOSE_MINUTE=960
+        INTERVAL=86400
+        COLUMNS=DATE,CLOSE,HIGH,LOW,OPEN,VOLUME
+        DATA=
+        TIMEZONE_OFFSET=-300
+        a1511902800,84.88,85.06,84.02,84.07,21925959
+        1,83.34,84.9172,83.175,84.71,27381109
+        2,84.17,84.52,83.34,83.51,33054647
+        3,84.26,84.81,83.22,83.6,29532132
+        6,81.08,84.4299,80.7,84.42,39094880
+        7,81.59,82.68,80.9801,81.34,26152261
+        8,82.78,83.14,81.43,81.55,26162054
+        9,82.49,82.8,82,82.54,23184547
+        10,84.16,84.58,83.33,83.63,24489106
+        13,85.23,85.37,84.12,84.29,22857854
+        14,85.58,86.05,85.08,85.31,23924105
+        15,85.35,86,85.17,85.74,22062679
+        16,84.69,85.8739,84.53,85.43,19305961
+        17,86.85,87.09,84.88,85.26,53936687
+        20,86.38,87.4999,86.23,87.12,22283752
+        21,85.83,86.35,85.27,86.35,23524787
+        22,85.52,86.3,84.71,86.2,23674931
+        23,85.5,86.1,85.4,86.05,17990745
+        24,85.51,85.63,84.92,85.4,14145841
+        28,85.4,85.5346,85.03,85.31,9891237
+        29,85.71,85.98,85.215,85.65,14678025
+    http_version: 
+  recorded_at: Thu, 28 Dec 2017 17:36:02 GMT
+recorded_with: VCR 3.0.3

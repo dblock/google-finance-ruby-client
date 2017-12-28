@@ -52,6 +52,23 @@ quotes[1] # GoogleFinance::Quote.get('AB')
 
 If one of the symbols cannot be found a [GoogleFinance::Errors::SymbolsNotFound](lib/google-finance/errors/symbols_not_found_error.rb) is raised.
 
+### Get Price History
+
+Fetches price history for a ticker.
+
+```ruby
+prices = GoogleFinance::Prices.get('MSFT')
+
+prices.exchange # NASDAQ
+
+# prices for the last month of open markets
+prices.count # 21
+
+# prices appear in reverse chronological order
+prices.last #<GoogleFinance::Price close=85.71 date=2017-12-27 16:00:00 -0500 high=85.98 low=85.215 open=85.65 volume=14678025>
+prices[-2] #<GoogleFinance::Price close=85.4 date=2017-12-26 16:00:00 -0500 high=85.5346 low=85.03 open=85.31 volume=9891237>
+```
+
 ## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md).

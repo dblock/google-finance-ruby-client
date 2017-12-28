@@ -55,7 +55,7 @@ module GoogleFinance
     end
 
     def self.get(symbol)
-      data = Resources.fetch(q: symbol)
+      data = GoogleFinance::Api::Index.get(q: symbol)
       if data.is_a?(Hash) && data.key?('searchresults')
         if data['searchresults'].size >= 1
           get(data['searchresults'].first['symbol'])

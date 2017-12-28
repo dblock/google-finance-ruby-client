@@ -1,7 +1,7 @@
 module GoogleFinance
   class Quotes
     def self.search(*symbols)
-      results = Resources.fetch(q: symbols.join(','))
+      results = GoogleFinance::Api::Index.get(q: symbols.join(','))
       if results.is_a?(Hash) && results.key?('searchresults')
         searchresults = results['searchresults']
         raise GoogleFinance::Errors::SymbolsNotFoundError.new(symbols, results) if searchresults.empty?
