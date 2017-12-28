@@ -1,5 +1,6 @@
 module GoogleFinance
   class Price < Resource
+    property 'timezone_offset'
     property 'date'
     property 'close'
     property 'symbol'
@@ -7,5 +8,6 @@ module GoogleFinance
     property 'low'
     property 'open'
     property 'volume'
+    property 'cdays'
   end
 end

@@ -14,18 +14,21 @@ module GoogleFinance
       headers = {}
       rows = []
       start_ts = Time.at(0)
+      timezone_offset = 0
       data.each_line do |line|
         line = CGI.unescape(line)
         if line =~ /(?<k>.+)\=(?<v>.*)/
           k = Regexp.last_match[:k].downcase.to_sym
-          headers[k] = case k
-                       when :columns then
-                         Regexp.last_match[:v].split(',').map(&:downcase)
-                       when :market_open_minute, :market_close_minute, :interval, :timezone_offset then
-                         Regexp.last_match[:v].to_i
-                       else
-                         Regexp.last_match[:v]
-                       end
+          case k
+          when :columns then
+            headers[k] = Regexp.last_match[:v].split(',').map(&:downcase)
+          when :market_open_minute, :market_close_minute, :interval then
+            headers[k] = Regexp.last_match[:v].to_i
+          when :timezone_offset then
+            timezone_offset = Regexp.last_match[:v].to_i
+          else
+            headers[k] = Regexp.last_match[:v]
+          end
         else
           values = line.split(',')
           raise "Unexpected number of columns, #{values.count} vs. #{headers[:columns].size}." if (headers[:columns] || []).size != values.count
@@ -51,7 +54,7 @@ module GoogleFinance
               end
             end
           end
-          rows << GoogleFinance::Price.new(row)
+          rows << GoogleFinance::Price.new({ 'timezone_offset' => timezone_offset }.merge(row))
         end
       end
       raise GoogleFinance::Errors::SymbolNotFoundError.new(symbol, data) if rows.count == 0 && headers[:exchange] == 'UNKNOWN EXCHANGE'

@@ -69,6 +69,44 @@ prices.last #<GoogleFinance::Price close=85.71 date=2017-12-27 16:00:00 -0500 hi
 prices[-2] #<GoogleFinance::Price close=85.4 date=2017-12-26 16:00:00 -0500 high=85.5346 low=85.03 open=85.31 volume=9891237>
 ```
 
+The following options are supported.
+
+* `x`: stock exchange symbol on which stock is traded, eg. `NASDAQ`
+* `i`: interval size in seconds
+* `p`: period, a number followed by `d` (days) or `Y` (years)
+* `f`: comma-separated array of data to return
+  * `d`: timestamp or interval
+  * `o`: price at market open
+  * `c`: price at market close
+  * `v`: volume
+  * `l`: low price
+  * `h`: high price
+  * `k`: ?
+* `df`: ?, eg. `cpct`
+* `auto`: ?
+* `ei`: ?
+* `ts`: starting timetamp in unix format, default to today
+
+The following example retrieves prices for a year in 1 hour intervals.
+
+```ruby
+prices = GoogleFinance::Prices.get('GOOG', i: 60 * 60, p: '1Y', f: 'd,c,v,k,o,h,l')
+
+prices.count # 1755
+```
+
+The following example retrieves prices at market close.
+
+```ruby
+prices = GoogleFinance::Prices.get('GOOG', f: 'd,c')
+
+prices.first # #<GoogleFinance::Price close=1047.41 date=2017-11-28 16:00:00 -0500>
+```
+
+See [price.rb](lib/google_finance/price.rb) for available fields.
+
+If a symbol cannot be found a [GoogleFinance::Errors::SymbolNotFound](lib/google-finance/errors/symbol_not_found_error.rb) is raised.
+
 ## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md).

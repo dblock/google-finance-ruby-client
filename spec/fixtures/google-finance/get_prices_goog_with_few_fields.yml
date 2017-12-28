@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://finance.google.com/finance/getprices?f=d,c&q=GOOG
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=ISO-8859-1
+      Cache-Control:
+      - private,max-age=60
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      P3p:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      Date:
+      - Thu, 28 Dec 2017 19:36:34 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Set-Cookie:
+      - NID=120=X3WsZT74lIH_zdo1Lkc0541rYVv4eRGFlj6oboyOy7VxYskGi4EKJr8ib7Ff904epoVUiQeYF9y6EP33iY5jZUp1krI4kWkIWW-h0KafjC_5xd1WMArpTK9zHyRZSf2C;Domain=.google.com;Path=/;Expires=Fri,
+        29-Jun-2018 19:36:34 GMT;HttpOnly
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+      Expires:
+      - Thu, 28 Dec 2017 19:36:34 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        EXCHANGE%3DNASDAQ
+        MARKET_OPEN_MINUTE=570
+        MARKET_CLOSE_MINUTE=960
+        INTERVAL=86400
+        COLUMNS=DATE,CLOSE
+        DATA=
+        TIMEZONE_OFFSET=-300
+        a1511902800,1047.41
+        1,1021.66
+        2,1021.41
+        3,1010.17
+        6,998.68
+        7,1005.15
+        8,1018.38
+        9,1030.93
+        10,1037.05
+        13,1041.1
+        14,1040.48
+        15,1040.61
+        16,1049.15
+        17,1064.19
+        20,1077.14
+        21,1070.68
+        22,1064.95
+        23,1063.63
+        24,1060.12
+        28,1056.74
+        29,1049.37
+    http_version: 
+  recorded_at: Thu, 28 Dec 2017 19:36:34 GMT
+recorded_with: VCR 3.0.3
