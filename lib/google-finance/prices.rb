@@ -10,7 +10,40 @@ module GoogleFinance
     end
 
     def self.get(symbol, params = {})
-      data = GoogleFinance::Api::GetPrices.fetch({ q: symbol }.merge(params))
+      query = {}
+      params.each_pair do |k, v|
+        case k
+        when :exchange, :x then
+          query[:x] = v
+        when :interval, :i then
+          query[:i] = v
+        when :period, :p then
+          query[:p] = v
+        when :df then
+          query[:df] = v
+        when :auto then
+          query[:auto] = v
+        when :ei then
+          query[:ei] = v
+        when :fields, :f then
+          query[:f] = (v.is_a?(String) ? v.split(',').map(&:to_sym) : v).map do |f|
+            case f
+            when :date, :d then :d
+            when :open, :o then :o
+            when :close, :c then :c
+            when :volume, :v then :v
+            when :low, :l then :l
+            when :high, :h then :h
+            when :k then :k
+            else
+              raise ArgumentError, "Invalid fields: #{v}."
+            end
+          end.join(',')
+        else
+          raise ArgumentError, "Invalid parameter: #{k}."
+        end
+      end
+      data = GoogleFinance::Api::GetPrices.fetch({ q: symbol }.merge(query))
       headers = {}
       rows = []
       start_ts = Time.at(0)

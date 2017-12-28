@@ -43,9 +43,25 @@ describe GoogleFinance::Prices do
       expect(subject.last.timezone_offset).to eq -300
     end
   end
+  context 'with custom named fields', vcr: { cassette_name: 'get_prices_goog_with_options' } do
+    subject do
+      GoogleFinance::Prices.get('GOOG', interval: 60 * 60, period: '1Y', fields: %i[date close volume k open high low], df: 'cpct', auto: 0)
+    end
+    it 'retrieves price history' do
+      expect(subject.exchange).to eq 'NASDAQ'
+      expect(subject.interval).to eq 3600
+      expect(subject.columns).to eq(%w[date close high low open volume cdays])
+      expect(subject.count).to eq 1755
+    end
+    it 'knows timezone_offset' do
+      expect(subject.first.timezone_offset).to eq -300
+      expect(subject[1024].timezone_offset).to eq -240
+      expect(subject.last.timezone_offset).to eq -300
+    end
+  end
   context 'with few fields', vcr: { cassette_name: 'get_prices_goog_with_few_fields' } do
     subject do
-      GoogleFinance::Prices.get('GOOG', f: 'd,c')
+      GoogleFinance::Prices.get('GOOG', fields: %i[date close])
     end
     it 'retrieves price history' do
       expect(subject.exchange).to eq 'NASDAQ'

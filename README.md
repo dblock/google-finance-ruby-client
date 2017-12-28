@@ -71,34 +71,29 @@ prices[-2] #<GoogleFinance::Price close=85.4 date=2017-12-26 16:00:00 -0500 high
 
 The following options are supported.
 
-* `x`: stock exchange symbol on which stock is traded, eg. `NASDAQ`
-* `i`: interval size in seconds
-* `p`: period, a number followed by `d` (days) or `Y` (years)
-* `f`: comma-separated array of data to return
-  * `d`: timestamp or interval
-  * `o`: price at market open
-  * `c`: price at market close
-  * `v`: volume
-  * `l`: low price
-  * `h`: high price
-  * `k`: ?
-* `df`: ?, eg. `cpct`
-* `auto`: ?
-* `ei`: ?
-* `ts`: starting timetamp in unix format, default to today
+* `exchange`: stock exchange symbol on which stock is traded, eg. `NASDAQ`
+* `interval`: interval size in seconds
+* `period`: period, a number followed by `d` (days) or `Y` (years)
+* `fields`: array of data to return
+  * `date`: timestamp
+  * `open`: price at market open
+  * `close`: price at market close
+  * `volume`: volume
+  * `low`: low price
+  * `high`: high price
 
 The following example retrieves prices for a year in 1 hour intervals.
 
 ```ruby
-prices = GoogleFinance::Prices.get('GOOG', i: 60 * 60, p: '1Y', f: 'd,c,v,k,o,h,l')
+prices = GoogleFinance::Prices.get('GOOG', interval: 60 * 60, period: '1Y', fields: [:date, :close, :volume, :open, :high, :low])
 
 prices.count # 1755
 ```
 
-The following example retrieves prices at market close.
+The following example retrieves only prices at market close.
 
 ```ruby
-prices = GoogleFinance::Prices.get('GOOG', f: 'd,c')
+prices = GoogleFinance::Prices.get('GOOG', fields: [:days, :close])
 
 prices.first # #<GoogleFinance::Price close=1047.41 date=2017-11-28 16:00:00 -0500>
 ```
