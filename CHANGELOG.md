@@ -1,3 +1,7 @@
+### 0.2.1 (Next)
+
+* Your contribution here.
+
 ### 0.2.0 (2017/12/28)
 
 * [#1](https://github.com/dblock/google-finance-ruby-client/issues/1): Retrieve history of prices - [@dblock](https://github.com/dblock).
