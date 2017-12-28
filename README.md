@@ -1,7 +1,7 @@
 Google Finance Ruby Client
 ==========================
 
-[![Gem Version](https://badge.fury.io/rb/google-finance-ruby-client.svg)](http://badge.fury.io/rb/google-finance-ruby-client)
+[![Gem Version](https://badge.fury.io/rb/google-finance-ruby-client.svg)](https://badge.fury.io/rb/google-finance-ruby-client)
 [![Build Status](https://travis-ci.org/dblock/google-finance-ruby-client.svg?branch=master)](https://travis-ci.org/dblock/google-finance-ruby-client)
 
 A Ruby client for the undocumented Google Finance web API that attempts to make sense of the data.
