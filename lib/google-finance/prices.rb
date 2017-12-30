@@ -2,7 +2,7 @@ module GoogleFinance
   class Prices < Array
     extend Forwardable
 
-    def_delegators :@headers, :exchange, :market_open_minute, :market_close_minute, :interval, :columns, :timezone_offset
+    def_delegators :@headers, :exchange, :market_open_minute, :market_close_minute, :interval, :columns
 
     def initialize(headers, values = [])
       @headers = OpenStruct.new(headers)
