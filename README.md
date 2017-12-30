@@ -4,7 +4,7 @@ Google Finance Ruby Client
 [![Gem Version](https://badge.fury.io/rb/google-finance-ruby-client.svg)](https://badge.fury.io/rb/google-finance-ruby-client)
 [![Build Status](https://travis-ci.org/dblock/google-finance-ruby-client.svg?branch=master)](https://travis-ci.org/dblock/google-finance-ruby-client)
 
-A Ruby client for the undocumented Google Finance web API that attempts to make sense of the data.
+A Ruby client for the undocumented Google Finance web API. Supports stock quotes and historical prices. Attempts to make sense of, coerce and structure the data.
 
 <a href='http://finance.google.com/finance'>![](google-finance.png)</a>
 

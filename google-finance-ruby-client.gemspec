@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.homepage = 'http://github.com/dblock/google-finance-ruby-client'
   s.licenses = ['MIT']
-  s.summary = 'Google Finance web API ruby client.'
+  s.summary = 'Google Finance web API ruby client with support for retrieving stock quotes and historical prices.'
   s.add_dependency 'faraday', '>= 0.9'
   s.add_dependency 'faraday_middleware'
   s.add_dependency 'hashie'
