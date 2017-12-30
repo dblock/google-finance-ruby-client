@@ -67,18 +67,18 @@ prices = GoogleFinance::History.get('MSFT')
 prices.count # 251
 
 # prices appear in reverse chronological order
-prices.first #<GoogleFinance::Price close=85.54 date=#<Date: 2017-12-29> high=86.05 low=85.5 open=85.63 volume=18717406>
-prices[1] #<GoogleFinance::Price close=85.72 date=#<Date: 2017-12-28> high=85.93 low=85.55 open=85.9 volume=10594344>
+prices.first # #<GoogleFinance::Price close=85.54 date=#<Date: 2017-12-29> high=86.05 low=85.5 open=85.63 volume=18717406>
+prices[1] # #<GoogleFinance::Price close=85.72 date=#<Date: 2017-12-28> high=85.93 low=85.55 open=85.9 volume=10594344>
  ```
 
 If a symbol cannot be found a [GoogleFinance::Errors::SymbolNotFound](lib/google-finance/errors/symbol_not_found_error.rb) is raised.
 
 The following options are supported.
 
-* `start_date`: date to start from
-* `end_date`: date to retrieve to
+* `start_date`: date to start retrieving from
+* `end_date`: date to retrieve data up to
 
-Retrieve prices in the first days of 2016. No trading on the week-end.
+Retrieve prices in the first trading week of 2016. No trading on the week-end or during holidays.
 
 ```ruby
 prices = GoogleFinance::History.get('MSFT', start_date: Date.parse('2016-01-03'), end_date: Date.parse('2016-01-10'))
