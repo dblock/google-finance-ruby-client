@@ -1,3 +1,7 @@
+### 0.2.2 (Next)
+
+* Your contribution here.
+
 ### 0.2.1 (2017/12/30)
 
 * [#5](https://github.com/dblock/google-finance-ruby-client/issues/5): Added support for interday historical price data - [@dblock](https://github.com/dblock).
