@@ -24,6 +24,8 @@ Run `bundle install`.
 
 ### Get a Quote
 
+Fetches stock quotes via [https://finance.google.com/finance](lib/google-finance/api/index.rb).
+
 ```ruby
 quote = GoogleFinance::Quote.get('MSFT')
 
@@ -54,7 +56,7 @@ If one of the symbols cannot be found a [GoogleFinance::Errors::SymbolsNotFound]
 
 ### Get Price History
 
-Fetches price history for a ticker.
+Fetches price history for a ticker via [https://finance.google.com/finance/getprices](lib/google-finance/api/get_prices.rb).
 
 ```ruby
 prices = GoogleFinance::Prices.get('MSFT')
