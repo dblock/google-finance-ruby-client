@@ -56,7 +56,40 @@ If one of the symbols cannot be found a [GoogleFinance::Errors::SymbolsNotFound]
 
 ### Get Price History
 
-Fetches price history for a ticker via [https://finance.google.com/finance/getprices](lib/google-finance/api/get_prices.rb).
+#### Daily Price History
+
+Fetches price history for a ticker via [https://finance.google.com/finance/historical](lib/google-finance/api/historical.rb).
+
+```ruby
+prices = GoogleFinance::History.get('MSFT')
+
+# prices for the last year of open markets
+prices.count # 251
+
+# prices appear in reverse chronological order
+prices.first #<GoogleFinance::Price close=85.54 date=#<Date: 2017-12-29> high=86.05 low=85.5 open=85.63 volume=18717406>
+prices[1] #<GoogleFinance::Price close=85.72 date=#<Date: 2017-12-28> high=85.93 low=85.55 open=85.9 volume=10594344>
+ ```
+
+If a symbol cannot be found a [GoogleFinance::Errors::SymbolNotFound](lib/google-finance/errors/symbol_not_found_error.rb) is raised.
+
+The following options are supported.
+
+* `start_date`: date to start from
+* `end_date`: date to retrieve to
+
+Retrieve prices in the first days of 2016. No trading on the week-end.
+
+```ruby
+prices = GoogleFinance::History.get('MSFT', start_date: Date.parse('2016-01-03'), end_date: Date.parse('2016-01-10'))
+
+prices.count # 5
+prices.first # #<GoogleFinance::Price close=52.33 date=#<Date: 2016-01-08> high=53.28 low=52.15 open=52.37 volume=48753969>
+```
+
+#### Intraday Price History
+
+Fetches price history, including at intraday intervals, for a ticker via [https://finance.google.com/finance/getprices](lib/google-finance/api/get_prices.rb).
 
 ```ruby
 prices = GoogleFinance::Prices.get('MSFT')
@@ -88,12 +121,14 @@ The following options are supported.
   * `low`: low price
   * `high`: high price
 
-Retrieve prices for a year in 1 hour intervals.
+Retrieve intraday prices in 1 hour intervals.
 
 ```ruby
-prices = GoogleFinance::Prices.get('GOOG', interval: 60 * 60, period: '1Y', fields: [:date, :close, :volume, :open, :high, :low])
+prices = GoogleFinance::Prices.get('GOOG', interval: 60 * 60, period: '1d')
 
-prices.count # 1755
+prices.count # 7
+
+prices # array of GoogleFinance::Price, date=2017-12-29 10:00AM, 11:00AM, etc.
 ```
 
 Retrieve only prices at market close.

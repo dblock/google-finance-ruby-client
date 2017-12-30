@@ -59,6 +59,17 @@ describe GoogleFinance::Prices do
       expect(subject.last.timezone_offset).to eq -300
     end
   end
+  context 'intraday', vcr: { cassette_name: 'get_prices_goog_intraday' } do
+    subject do
+      GoogleFinance::Prices.get('GOOG', i: 60 * 60, p: '1d', f: 'd,c,v,k,o,h,l')
+    end
+    it 'retrieves intraday price history' do
+      expect(subject.exchange).to eq 'NASDAQ'
+      expect(subject.interval).to eq 3600
+      expect(subject.columns).to eq(%w[date close high low open volume cdays])
+      expect(subject.count).to eq 7
+    end
+  end
   context 'with few fields', vcr: { cassette_name: 'get_prices_goog_with_few_fields' } do
     subject do
       GoogleFinance::Prices.get('GOOG', fields: %i[date close])

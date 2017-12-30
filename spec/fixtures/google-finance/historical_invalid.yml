@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://finance.google.com/finance/historical?output=csv&q=INVALID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Sat, 30 Dec 2017 19:36:58 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      P3p:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Set-Cookie:
+      - NID=120=YGp3I9EcoLyPDxtMsmDytVlleg3kXgq3LkK0i21eVhtbFSWHSBvMpRjLOBoeGvwMqi3oUnttHcFwRZSWdfSUs4Qo1-U02qOLLCpCVrpA3D5ou5_YWTb5pcNIIR_K-1FL;Domain=.google.com;Path=/;Expires=Sun,
+        01-Jul-2018 19:36:58 GMT;HttpOnly
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PCFET0NUWVBFIGh0bWw+PGh0bWwgbGFuZz1lbj48bWV0YSBjaGFyc2V0PXV0Zi04PjxtZXRhIG5hbWU9dmlld3BvcnQgY29udGVudD0iaW5pdGlhbC1zY2FsZT0xLCBtaW5pbXVtLXNjYWxlPTEsIHdpZHRoPWRldmljZS13aWR0aCI+PHRpdGxlPkVycm9yIDQwMCAoTm90IEZvdW5kKSEhMTwvdGl0bGU+PHN0eWxlPip7bWFyZ2luOjA7cGFkZGluZzowfWh0bWwsY29kZXtmb250OjE1cHgvMjJweCBhcmlhbCxzYW5zLXNlcmlmfWh0bWx7YmFja2dyb3VuZDojZmZmO2NvbG9yOiMyMjI7cGFkZGluZzoxNXB4fWJvZHl7Y29sb3I6IzIyMjt0ZXh0LWFsaWduOnVuc2V0O21hcmdpbjo3JSBhdXRvIDA7bWF4LXdpZHRoOjM5MHB4O21pbi1oZWlnaHQ6MTgwcHg7cGFkZGluZzozMHB4IDAgMTVweDt9KiA+IGJvZHl7YmFja2dyb3VuZDp1cmwoLy93d3cuZ29vZ2xlLmNvbS9pbWFnZXMvZXJyb3JzL3JvYm90LnBuZykgMTAwJSA1cHggbm8tcmVwZWF0O3BhZGRpbmctcmlnaHQ6MjA1cHh9cHttYXJnaW46MTFweCAwIDIycHg7b3ZlcmZsb3c6aGlkZGVufXByZXt3aGl0ZS1zcGFjZTpwcmUtd3JhcDt9aW5ze2NvbG9yOiM3Nzc7dGV4dC1kZWNvcmF0aW9uOm5vbmV9YSBpbWd7Ym9yZGVyOjB9QG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDo3NzJweCl7Ym9keXtiYWNrZ3JvdW5kOm5vbmU7bWFyZ2luLXRvcDowO21heC13aWR0aDpub25lO3BhZGRpbmctcmlnaHQ6MH19I2xvZ297YmFja2dyb3VuZDp1cmwoLy93d3cuZ29vZ2xlLmNvbS9pbWFnZXMvYnJhbmRpbmcvZ29vZ2xlbG9nby8xeC9nb29nbGVsb2dvX2NvbG9yXzE1MHg1NGRwLnBuZykgbm8tcmVwZWF0O21hcmdpbi1sZWZ0Oi01cHh9QG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXJlc29sdXRpb246MTkyZHBpKXsjbG9nb3tiYWNrZ3JvdW5kOnVybCgvL3d3dy5nb29nbGUuY29tL2ltYWdlcy9icmFuZGluZy9nb29nbGVsb2dvLzJ4L2dvb2dsZWxvZ29fY29sb3JfMTUweDU0ZHAucG5nKSBuby1yZXBlYXQgMCUgMCUvMTAwJSAxMDAlOy1tb3otYm9yZGVyLWltYWdlOnVybCgvL3d3dy5nb29nbGUuY29tL2ltYWdlcy9icmFuZGluZy9nb29nbGVsb2dvLzJ4L2dvb2dsZWxvZ29fY29sb3JfMTUweDU0ZHAucG5nKSAwfX1AbWVkaWEgb25seSBzY3JlZW4gYW5kICgtd2Via2l0LW1pbi1kZXZpY2UtcGl4ZWwtcmF0aW86Mil7I2xvZ297YmFja2dyb3VuZDp1cmwoLy93d3cuZ29vZ2xlLmNvbS9pbWFnZXMvYnJhbmRpbmcvZ29vZ2xlbG9nby8yeC9nb29nbGVsb2dvX2NvbG9yXzE1MHg1NGRwLnBuZykgbm8tcmVwZWF0Oy13ZWJraXQtYmFja2dyb3VuZC1zaXplOjEwMCUgMTAwJX19I2xvZ297ZGlzcGxheTppbmxpbmUtYmxvY2s7aGVpZ2h0OjU0cHg7d2lkdGg6MTUwcHh9PC9zdHlsZT48ZGl2IGlkPSJhZi1lcnJvci1jb250YWluZXIiPjxhIGhyZWY9Ly93d3cuZ29vZ2xlLmNvbT48c3BhbiBpZD1sb2dvIGFyaWEtbGFiZWw9R29vZ2xlPjwvc3Bhbj48L2E+PHA+PGI+NDAwLjwvYj4gPGlucz5UaGF04oCZcyBhbiBlcnJvci48L2lucz48cD5UaGUgcmVxdWVzdGVkIFVSTCB3YXMgbm90IGZvdW5kIG9uIHRoaXMgc2VydmVyLiA8aW5zPlRoYXTigJlzIGFsbCB3ZSBrbm93LjwvaW5zPjwvZGl2Pg==
+    http_version: 
+  recorded_at: Sat, 30 Dec 2017 19:36:58 GMT
+recorded_with: VCR 3.0.3

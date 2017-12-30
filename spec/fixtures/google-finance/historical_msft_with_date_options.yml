@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://finance.google.com/finance/historical?enddate=10-Jan-2016&output=csv&q=MSFT&startdate=3-Jan-2016
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.ms-excel
+      Date:
+      - Sat, 30 Dec 2017 19:35:33 GMT
+      Expires:
+      - Sat, 30 Dec 2017 19:35:33 GMT
+      Cache-Control:
+      - private, max-age=0
+      Content-Disposition:
+      - attachment; filename="msft.csv"
+      X-Content-Type-Options:
+      - nosniff
+      P3p:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      Transfer-Encoding:
+      - chunked
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Set-Cookie:
+      - NID=120=b5tsAYolKpbrhP2UrQP74cW8tw6gYj26OPr4R0LJ8J62FoUJLti2WapSDHcLcPXr2ddsnYMiuFij66GJfJIHHJ-EH2Bmee9FZ4GTHoGSe0zsrNrH1NN1foP8S4zG-MQG;Domain=.google.com;Path=/;Expires=Sun,
+        01-Jul-2018 19:35:33 GMT;HttpOnly
+      - SC=RV=:ED=us; expires=Sun, 01-Jul-2018 19:35:33 GMT; path=/finance; domain=.google.com
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/RGF0ZSxPcGVuLEhpZ2gsTG93LENsb3NlLFZvbHVtZQo4LUphbi0xNiw1Mi4zNyw1My4yOCw1Mi4xNSw1Mi4zMyw0ODc1Mzk2OQo3LUphbi0xNiw1Mi43MCw1My40OCw1Mi4wNyw1Mi4xNyw1NjU2NDg1Mgo2LUphbi0xNiw1NC4zMiw1NC40MCw1My42NCw1NC4wNSwzOTUxODg2Mwo1LUphbi0xNiw1NC45Myw1NS4zOSw1NC41NCw1NS4wNSwzNDA3OTY3NAo0LUphbi0xNiw1NC4zMiw1NC44MCw1My4zOSw1NC44MCw1Mjg0MzIxMAo=
+    http_version: 
+  recorded_at: Sat, 30 Dec 2017 19:35:33 GMT
+recorded_with: VCR 3.0.3

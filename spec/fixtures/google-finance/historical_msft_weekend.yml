@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://finance.google.com/finance/historical?enddate=2-Jan-2016&output=csv&q=MSFT&startdate=1-Jan-2016
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.13.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/vnd.ms-excel
+      Date:
+      - Sat, 30 Dec 2017 19:36:58 GMT
+      Expires:
+      - Sat, 30 Dec 2017 19:36:58 GMT
+      Cache-Control:
+      - private, max-age=0
+      Content-Disposition:
+      - attachment; filename="msft.csv"
+      X-Content-Type-Options:
+      - nosniff
+      P3p:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      Transfer-Encoding:
+      - chunked
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Set-Cookie:
+      - NID=120=YtvaW56YwDZZGYcW88rygTBA_H16qooKtQrt3Nk-uczbsuY-uchDhPyTjQMHNS_Qf-X87S6_yIIaUuqbEfgY0h8Kx5QDw9iV6WVi1xZnGPwSSUr7vgltB7OAIUzRPU54;Domain=.google.com;Path=/;Expires=Sun,
+        01-Jul-2018 19:36:58 GMT;HttpOnly
+      - SC=RV=:ED=us; expires=Sun, 01-Jul-2018 19:36:58 GMT; path=/finance; domain=.google.com
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        77u/RGF0ZSxPcGVuLEhpZ2gsTG93LENsb3NlLFZvbHVtZQo=
+    http_version: 
+  recorded_at: Sat, 30 Dec 2017 19:36:58 GMT
+recorded_with: VCR 3.0.3
