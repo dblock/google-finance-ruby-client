@@ -17,8 +17,10 @@ module GoogleFinance
       #  v: volume
       #  l: low
       #  o: open
-      # df: ?, eg. cpct
-      # auto: ?
+      # df: difference
+      #  cpct: change in percent
+      # auto:
+      #  1 : ?
       # ei: ?
       # ts: starting timetamp in unix format, default to today
       #
