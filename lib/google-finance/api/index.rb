@@ -15,10 +15,10 @@ module GoogleFinance
             params_encoder: Faraday::FlatParamsEncoder
           }
         ) do |c|
-          c.use ::FaradayMiddleware::ParseJson
-          c.use GoogleFinance::FaradayMiddleware::Preprocessor
-          c.use Faraday::Response::RaiseError
-          c.use Faraday::Adapter::NetHttp
+          c.adapter ::FaradayMiddleware::ParseJson
+          c.adapter GoogleFinance::FaradayMiddleware::Preprocessor
+          c.adapter Faraday::Response::RaiseError
+          c.adapter Faraday::Adapter::NetHttp
         end
       end
     end
