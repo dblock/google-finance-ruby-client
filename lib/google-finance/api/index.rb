@@ -10,7 +10,7 @@ module GoogleFinance
 
       def self.connection
         Faraday.new(
-          url: 'https://finance.google.com/finance',
+          url: 'https://www.google.com/finance',
           request: {
             params_encoder: Faraday::FlatParamsEncoder
           }
